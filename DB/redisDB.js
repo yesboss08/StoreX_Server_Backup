@@ -1,10 +1,10 @@
 import {createClient} from 'redis'
 import { Config } from '../utils/Config/config.js'
 
-const redisClient = createClient({password:Config.Redis_DB_Password})
-// const redisClient = createClient({
-//     url:Config.Redis_URL,password:Config.Redis_DB_Password,username:"default"
-// })
+//const redisClient = createClient({password:Config.Redis_DB_Password})
+const redisClient = createClient({
+    url:Config.Redis_URL
+})
 
 export default redisClient
 

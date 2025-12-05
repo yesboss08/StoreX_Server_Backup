@@ -39,7 +39,13 @@
 //   await connectDB()
 // })()
 
-import { GetCloudFrontUrl } from "./utils/Aws/Clould-Front_Client.js";
+import redisClient ,{ ConnectRedis } from "./DB/redisDB.js"
 
-const a = await GetCloudFrontUrl({key:"oppoAd.mp4"})
-console.log({a})
+try {
+await ConnectRedis()
+const userSession={name:"bossis", email:"boss@gmail.com", userId:"12345678"}
+await redisClient.json.set(`session:1234:5678`, "$" , userSession )
+console.log("done")
+} catch (error) {
+    console.log(error)
+}

@@ -11,6 +11,8 @@ import RazorpayRouter from './routes/razorpay.js'
 import { Config } from "./utils/Config/config.js"
 
 const redisClient = await ConnectRedis()
+
+
 //connect with db
 import "./Models/db.js"
 
