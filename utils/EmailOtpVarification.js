@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import { Config } from './Config/config.js';
+import { Config } from './Config/Config.js';
 
 const resend = new Resend(Config.Resend_Api_Key);
 

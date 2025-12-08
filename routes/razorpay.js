@@ -22,7 +22,7 @@ import {
      ValidPayment,
 } from "../utils/permission/RazorpaySubscription.js";
 import { clouddebugger } from "googleapis/build/src/apis/clouddebugger/index.js";
-import { Config } from "../utils/Config/config.js";
+import { Config } from "../utils/Config/Config.js";
 
 const router = express.Router();
 

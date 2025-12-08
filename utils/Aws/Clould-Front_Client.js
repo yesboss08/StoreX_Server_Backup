@@ -2,7 +2,7 @@ import {
   CloudFrontClient,
   CreateInvalidationCommand,
 } from "@aws-sdk/client-cloudfront";
-import { Config } from "../Config/config.js";
+import { Config } from "../Config/Config.js";
 
 const client = new CloudFrontClient({
   credentials:{accessKeyId:Config.AWS_ACCESS_KEY_ID,secretAccessKey:Config.AWS_SECREAT_ACCESS_KEY}

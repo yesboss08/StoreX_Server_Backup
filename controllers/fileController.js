@@ -7,7 +7,7 @@ import userModels from "../Models/userModel.js";
 import { isAllowedTOAccess } from "../utils/permission/permission.js";
 import { updateFolderSize } from "../utils/StorageManage.js";
 import { setPath } from "../utils/setFilePath.js";
-import { Config } from "../utils/Config/config.js";
+import { Config } from "../utils/Config/Config.js";
 import { GetCloudFrontUrl } from "../utils/Aws/Clould-Front_Client.js";
 import { DeleteS3Object } from "../utils/Aws/Storage_S3_Client.js";
 

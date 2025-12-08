@@ -1,6 +1,6 @@
 import directoryModel from "../Models/directoryModel.js";
 import fileModel from "../Models/fileModel.js";
-import { Config } from "./Config/config.js";
+import { Config } from "./Config/Config.js";
 
 //folder size change
 export const updateFolderSize = async (parentDir, folderSize, fileDocId) => {

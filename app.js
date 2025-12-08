@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser"
 import { ConnectRedis } from "./DB/redisDB.js"
 import GoogleDriveRouter from "./routes/googleDrive.js"
 import RazorpayRouter from './routes/razorpay.js'
-import { Config } from "./utils/Config/config.js"
+import { Config } from "./utils/Config/Config.js"
 const redisClient = await ConnectRedis()
 
 

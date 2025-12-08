@@ -15,7 +15,7 @@ import { StorageCheeck } from "../middlewares/FileUploadAllowed.js";
 import { setPath } from "../utils/setFilePath.js";
 import path from "path";
 import mime from "mime";
-import { Config } from "../utils/Config/config.js";
+import { Config } from "../utils/Config/Config.js";
 import {
   CheeckValidFile,
   CreatePutSignedUrl,

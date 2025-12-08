@@ -5,7 +5,7 @@ import {
   S3Client,
 } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { Config } from "../Config/config.js";
+import { Config } from "../Config/Config.js";
 import crypto from "crypto";
 import { UpdateCloudFrontInvalidation } from "./Clould-Front_Client.js";
 

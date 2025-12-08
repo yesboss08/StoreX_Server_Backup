@@ -1,6 +1,6 @@
 import {OAuth2Client} from 'google-auth-library'
 import { google } from 'googleapis'
-import { Config } from './Config/config.js'
+import { Config } from './Config/Config.js'
 
 export const clientId =Config.Google_Oauth_ClientID
 const redirectUri = Config.Google_Oauth_RedirectUri

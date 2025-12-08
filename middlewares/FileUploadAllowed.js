@@ -1,6 +1,6 @@
 import directoryModel from "../Models/directoryModel.js"
 import userModels from "../Models/userModel.js"
-import { Config } from "../utils/Config/config.js"
+import { Config } from "../utils/Config/Config.js"
 
 export const StorageCheeck = async(req,res,next)=>{
     const {userId}= req.userData 

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Config } from "../utils/Config/config.js";
+import { Config } from "../utils/Config/Config.js";
 
 try {
     mongoose.connect(Config.MongoDB_URL)
