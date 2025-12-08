@@ -9,7 +9,6 @@ import { ConnectRedis } from "./DB/redisDB.js"
 import GoogleDriveRouter from "./routes/googleDrive.js"
 import RazorpayRouter from './routes/razorpay.js'
 import { Config } from "./utils/Config/config.js"
-
 const redisClient = await ConnectRedis()
 
 
