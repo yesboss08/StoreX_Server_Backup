@@ -5,7 +5,7 @@ import {
 import { Config } from "../Config/config.js";
 
 const client = new CloudFrontClient({
-  profile: Config.AWS_LOACL_IAM_USER_PROFILE,
+  credentials:{accessKeyId:Config.AWS_ACCESS_KEY_ID,secretAccessKey:Config.AWS_SECREAT_ACCESS_KEY}
 });
 
 export const UpdateCloudFrontInvalidation = async ({ items }) => {

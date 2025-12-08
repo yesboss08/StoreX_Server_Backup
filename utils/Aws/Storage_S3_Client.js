@@ -9,7 +9,7 @@ import { Config } from "../Config/config.js";
 import crypto from "crypto";
 import { UpdateCloudFrontInvalidation } from "./Clould-Front_Client.js";
 
-const client = new S3Client({ profile: Config.AWS_LOACL_IAM_USER_PROFILE ,region:"ap-south-2"});
+const client = new S3Client({ credentials:{accessKeyId:Config.AWS_ACCESS_KEY_ID,secretAccessKey:Config.AWS_SECREAT_ACCESS_KEY} ,region:"ap-south-2"});
 
 export const CreatePutSignedUrl = async ({
   fileId,

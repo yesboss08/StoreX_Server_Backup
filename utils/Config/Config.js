@@ -25,5 +25,7 @@ export const Config = {
   AWS_S3_STORAGE_BUCKET_NAME:process.env.AWS_S3_STORAGE_BUCKET_NAME,
   AWS_CLOUD_FRONT_DISTRIBUTION_ID:process.env.AWS_CLOUD_FRONT_DISTRIBUTION_ID,
   AWS_Cloud_Front_Distribution_Domain:process.env.AWS_Cloud_Front_Distribution_Domain,
-  AWS_CLOUD_FRONT_keyPairId:process.env.AWS_CLOUD_FRONT_keyPairId
+  AWS_CLOUD_FRONT_keyPairId:process.env.AWS_CLOUD_FRONT_keyPairId,
+  AWS_ACCESS_KEY_ID:process.env.AWS_ACCESS_KEY_ID,
+AWS_SECREAT_ACCESS_KEY:process.env.AWS_SECREAT_ACCESS_KEY
 };
