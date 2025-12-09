@@ -67,7 +67,7 @@ app.listen(port, ()=>{
 })
 
 } catch (error) {
-    console.log("error can not connect to db", error)
+    console.log("error can not connect to database", error)
 }
 
 
