@@ -57,7 +57,7 @@ app.use("/razorpay",RazorpayRouter )
 app.use((err, req, res, next) => {
   console.error(err.stack); // log for debugging
   res.status(err.status || 500).json({
-    error: err.message || "something went wrong",
+    error: err.message || "something went wrong intenal server error",
   });
 });
 
