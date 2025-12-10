@@ -4,9 +4,7 @@ import {
 } from "@aws-sdk/client-cloudfront";
 import { Config } from "../Config/Config.js";
 
-const client = new CloudFrontClient({
-  credentials:{accessKeyId:Config.AWS_ACCESS_KEY_ID,secretAccessKey:Config.AWS_SECREAT_ACCESS_KEY}
-});
+const client = new CloudFrontClient({ credentials:{accessKeyId:Config.AWS_ACCESS_KEY_ID,secretAccessKey:Config.AWS_SECREAT_ACCESS_KEY}});
 
 export const UpdateCloudFrontInvalidation = async ({ items }) => {
   //each item should be included '/' if not then it will not update the invalidtion

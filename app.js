@@ -45,7 +45,9 @@ app.use(express.json({
 }));
 app.use(cookieParser(Config.Cookie_Secreate))
 
-  
+  app.get("/",(req,res)=>{
+    res.json({msg:"hello from storage app"})
+  })
 
 app.use("/directory",CheeckAuth, directoryRouter)
 app.use("/file",CheeckAuth, fileRouter)
