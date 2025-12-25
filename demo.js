@@ -39,13 +39,26 @@
 //   await connectDB()
 // })()
 
-import redisClient ,{ ConnectRedis } from "./DB/redisDB.js"
 
-try {
-await ConnectRedis()
-const userSession={name:"bossis", email:"boss@gmail.com", userId:"12345678"}
-await redisClient.json.set(`session:1234:5678`, "$" , userSession )
-console.log("done")
-} catch (error) {
-    console.log(error)
-}
+
+// import redisClient ,{ ConnectRedis } from "./DB/redisDB.js"
+
+// try {
+// await ConnectRedis()
+// const userSession={name:"bossis", email:"boss@gmail.com", userId:"12345678"}
+// await redisClient.json.set(`session:1234:5678`, "$" , userSession )
+// console.log("done")
+// } catch (error) {
+//     console.log(error)
+// }
+
+// const sid ='YzI0ODlmNjZiZTBhY2JhNzJjYzhhM2FkZDg2YmNlZDc'
+// const sid2 ='MGFmNDIwMmJjOTA4YjMwMThkYmQxOWU5YjQ4OWQ2NzA'
+// const json = Buffer.from(sid, "base64").toString("utf-8")
+//         console.log(json)
+
+
+     const data ='{"sesID":"f7af1043cf14b6fae200dd9fd7b7c597","uid":"6937066de68b1c78aecae5b9"}'
+
+     const r = Buffer.from(data,"utf-8").toString("base64url")
+console.log(r)

@@ -87,7 +87,7 @@ router.post("/santa08webhook", async (req, res, next) => {
 //sending the razorpayInstace. plans
 router.get("/plans", async (req, res) => {
      const { sid } = req.signedCookies;
-     if(!sid) res.status(200).json(AllPlansInfo)
+     if(!sid) return res.status(200).json(AllPlansInfo)
      const { uid } = JSON.parse(Buffer.from(sid, "base64url").toString("utf-8"));
      const userSubscriptionData = await SubscriptionModel.findOne({ userId: uid });
      if(!userSubscriptionData?._id) return res.status(200).json(AllPlansInfo)

@@ -36,8 +36,9 @@ const isValidPswd= await bcrypt.compare(password , userData?.password)
     //find the sessions exist
    req.userData = userData
  const sesID = await CreateSession(req)
+ const sessionData = JSON.stringify({ sesID, uid:userData?._id })
  if(!sesID)  return  res.status(404).json({err:"error while login"})
- res.cookie('sid', Buffer.from(sesID, 'utf-8').toString("base64url") , { httpOnly:true , maxAge:7*24*60*60*1000, sameSite:'none', secure:true, signed: true})
+ res.cookie('sid', Buffer.from(sessionData, 'utf-8').toString("base64url") , { httpOnly:true , maxAge:7*24*60*60*1000, sameSite:'none', secure:true, signed: true})
  return  res.status(200).json({msg:"user Loggeg in"}) 
   } catch (error) {
     console.log("error while login", error)
