@@ -27,5 +27,6 @@ export const Config = {
   AWS_Cloud_Front_Distribution_Domain:process.env.AWS_Cloud_Front_Distribution_Domain,
   AWS_CLOUD_FRONT_keyPairId:process.env.AWS_CLOUD_FRONT_keyPairId,
   AWS_ACCESS_KEY_ID:process.env.AWS_ACCESS_KEY_ID,
-AWS_SECREAT_ACCESS_KEY:process.env.AWS_SECREAT_ACCESS_KEY
+AWS_SECREAT_ACCESS_KEY:process.env.AWS_SECREAT_ACCESS_KEY,
+GIT_WEBHOOK_SCREATE:process.env.GIT_WEBHOOK_SCREATE
 };

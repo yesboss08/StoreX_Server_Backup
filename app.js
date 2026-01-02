@@ -9,6 +9,8 @@ import { ConnectRedis } from "./DB/redisDB.js"
 import GoogleDriveRouter from "./routes/googleDrive.js"
 import RazorpayRouter from './routes/razorpay.js'
 import { Config } from "./utils/Config/Config.js"
+import GitWebHookRouter from './routes/gitWebhook.js'
+
 const redisClient = await ConnectRedis()
 
 
@@ -54,7 +56,7 @@ app.use("/file",CheeckAuth, fileRouter)
 app.use("/user",userRouter )
 app.use("/drive", CheeckAuth,GoogleDriveRouter )
 app.use("/razorpay",RazorpayRouter )
-
+app.use("/GitWebhook", GitWebHookRouter)
 
 app.use((err, req, res, next) => {
   console.error(err.stack); // log for debugging
