@@ -23,7 +23,7 @@ const AloowedOrigin = [
 ]
 
 try {
-
+console.log("minor changes")
 const app = express()
 const port = Config.PORT || 4000
 
