@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.post("/", async(req,res,next)=>{
 let childStream 
-
+console.log(req.body)
 const repoName = req.body.repository.name
 if(repoName=="StoreX_Server_Backup")  childStream = spawn('bash', ["/home/ubuntu/StoreX_Bash.sh"])
 if(repoName=="StoreX_Client_Backup")childStream = spawn('bash', ["/home/ubuntu/Clinet_Bash.sh"])
