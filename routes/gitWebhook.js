@@ -24,8 +24,7 @@ childStream.on("close", code =>{
     }else{
         console.log("error while running the bash file")
     }
-    return res.status(200).json({msg:"done"})
-   
+    return res.status(200).json({msg:"done executing the bash file"})
 })
 
 
@@ -33,6 +32,8 @@ childStream.on("error" , (err)=>{
     console.log("error while spwanign the bash file")
    return res.status(200).json({err:"error while executing the bash file"})
 })
+
+
 })
 
 export default router
