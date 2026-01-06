@@ -57,8 +57,29 @@
 // const json = Buffer.from(sid, "base64").toString("utf-8")
 //         console.log(json)
 
+ import {spawn} from "child_process"
+ import process from "process"
+const childStream = spawn('bash', ["bash.sh"])
 
-     const data ='{"sesID":"f7af1043cf14b6fae200dd9fd7b7c597","uid":"6937066de68b1c78aecae5b9"}'
 
-     const r = Buffer.from(data,"utf-8").toString("base64url")
-console.log(r)
+childStream.stdout.on('data', data => {
+  process.stdout.write(data); // mirror to terminal
+});
+
+childStream.on("close", code =>{
+     console.log({code})
+    if(code==0){
+        console.log("process executed successfuly")
+    }else{
+        console.log("error while running the bash file")
+    }
+})
+
+childStream.stderr.on("data",(chunk)=>{
+    process.stderr.write(chunk)
+})
+
+
+childStream.on("error" , (err)=>{
+    console.log("error while spwanign the bash file")
+})

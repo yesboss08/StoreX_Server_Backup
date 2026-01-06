@@ -22,14 +22,7 @@ if(repoName=="StoreX_Server_Backup") childStream = spawn(
   }
 )
 
-if(repoName=="StoreX_Client_Backup")childStream = spawn('bash', ["/home/ubuntu/Clinet_Bash.sh"],
-  {
-    env: {
-      ...process.env,          
-      AWS_PROFILE: 'sanat08',  
-      AWS_REGION: 'ap-south-1' 
-    }
-  })
+if(repoName=="StoreX_Client_Backup")childStream = spawn('bash', ["/home/ubuntu/Clinet_Bash.sh"])
 
 //  const childStream = spawn('bash', ["/c/Users/Backend\ NODE-JS/section-21/15_Automating_Deployments_with_Bash_Scripting/demo.sh"])
 
