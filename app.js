@@ -48,7 +48,7 @@ app.use(express.json({
 app.use(cookieParser(Config.Cookie_Secreate))
 
   app.get("/",(req,res)=>{
-    res.json({msg:"hello from Store-X app"})
+    res.json({msg:"hello from Store-X app changed"})
   })
 
 app.use("/directory",CheeckAuth, directoryRouter)
