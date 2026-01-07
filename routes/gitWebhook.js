@@ -12,14 +12,7 @@ const repoName = req.body.repository.name
 
 if(repoName=="StoreX_Server_Backup") childStream = spawn(
   'bash',
-  ['/home/ubuntu/Clinet_Bash.sh'],
-  {
-    env: {
-      ...process.env,          
-      AWS_PROFILE: 'sanat08',  
-      AWS_REGION: 'ap-south-1' 
-    }
-  }
+  ['/home/ubuntu/StoreX_Bash.sh']
 )
 
 if(repoName=="StoreX_Client_Backup")childStream = spawn('bash', ["/home/ubuntu/Clinet_Bash.sh"])
