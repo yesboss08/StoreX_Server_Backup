@@ -59,7 +59,17 @@
 
  import {spawn} from "child_process"
  import process from "process"
-const childStream = spawn('bash', ["bash.sh"])
+
+const a =[1,2,3]
+
+const MODE = a.includes(2)
+
+const childStream = spawn('bash', ["bash.sh"],{
+     env: {
+    ...process.env,
+    MODE: MODE
+  }
+})
 
 
 childStream.stdout.on('data', data => {
