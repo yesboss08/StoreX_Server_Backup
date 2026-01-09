@@ -7,10 +7,10 @@ import { Config } from '../utils/Config/Config.js';
 const router = express.Router()
 
 router.post("/", async (req, res, next) => {
-  const gitSign = req.header['x-hub-signature-256']
+  const gitSign = req.headers['x-hub-signature-256']
   if (!gitSign) return res.status(403).json({ err: "invalid sign" })
 
-  const mySign = 'sha256' + crypto.createHmac("sha256", Config.GIT_WEBHOOK_SCREATE).update(req.body).digest("hex")
+  const mySign = 'sha256=' + crypto.createHmac("sha256", Config.GIT_WEBHOOK_SCREATE).update(JSON.stringify(req.body)).digest("hex")
 
   if (mySign !== gitSign) return res.status(403).json({ err: "invalid git sign" })
 
@@ -21,7 +21,11 @@ router.post("/", async (req, res, next) => {
 
   //this is when the package.json file changed then only do npm i
   console.log({ispackage:req.body?.commits?.modified})
-const needInstall = req.body?.commits?.modified.includes("package.json")
+const needInstall = req.body?.commits?.some(commit =>
+  commit.added.includes("package.json") ||
+  commit.modified.includes("package.json") ||
+  commit.removed.includes("package.json")
+);
 console.log(needInstall)
 
   if (repoName == "StoreX_Server_Backup") childStream = spawn(
