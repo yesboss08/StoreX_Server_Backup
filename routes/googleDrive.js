@@ -227,7 +227,8 @@ router.get("/storageInfo", async (req, res, next) => {
     const { userData } = req;
     const userDbData = await userModels.findById(userData.userId);
     if (!userDbData) return res.status(404).json({ error: "User not found" });
-    const { accessToken, refreshToken, expiryDate } = userDbData.Tokens;
+    if(!userDbData?.Tokens) return res.status(204).json({msg:'user is not connect with the google drive'});
+    const { accessToken, refreshToken, expiryDate } = userDbData?.Tokens;
     DriveOauthClient.setCredentials({
       access_token: accessToken,
       refresh_token: refreshToken,
