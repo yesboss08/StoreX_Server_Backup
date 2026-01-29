@@ -32,5 +32,6 @@ jobs:
             git pull
             echo "installing packages"
             npm ci
+            echo "reload the pm2"
             pm2 reload $pm2_instace
           
