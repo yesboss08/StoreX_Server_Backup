@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const fileSchema = new Schema(
   {
@@ -11,6 +11,10 @@ const fileSchema = new Schema(
       type: String,
       required: [true, "extension is missing"],
     },
+    userId:{
+      type:mongoose.Schema.ObjectId , ref:"userDB" , required:true
+    }
+    ,
     parent: {
       type: Schema.Types.ObjectId,
       required: [true, "parent of the file is missing"],
@@ -27,7 +31,10 @@ const fileSchema = new Schema(
     },
     isPaid:{type:Boolean , default:false}
     ,
-      isUploading:{type:Boolean , default:true}
+      isUploading:{type:Boolean , default:true},
+      general_access_type: {
+      type:String, enum:["private", "public"], default:"private"
+   }
     
   },
   { timestamps: true }

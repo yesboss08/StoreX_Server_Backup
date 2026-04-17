@@ -12,6 +12,24 @@ const router = express.Router()
 
 router.param('directoryId' , cheeckId)
 router.post("/",CreateDir )
+
+//change the directory permission
+router.put("/changePermission", async (req,res, next)=>{
+    const {userData} = req
+    const {docId, fileType , sharedUsersId} = req.body
+
+
+// req.body = {
+//     members:["users id"],
+//     general_access_type: "private" | "public",
+//     documentId:"objectid",
+//     userId:"objectId"
+// }
+    
+
+})
+
+
 //fix this aggregate pipe line for better speed
 router.route("/yo/:directoryId?").get(DirData)
 router.route("/:directoryId?").get(GetDirData).patch(RenameDir).delete(DeleteDir)

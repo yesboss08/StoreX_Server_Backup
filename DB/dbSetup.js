@@ -1,4 +1,4 @@
-import { Db, MongoClient, ObjectId } from "mongodb";
+ import { Db, MongoClient, ObjectId } from "mongodb";
 import { connectDB,client } from "./db.js";
 
 

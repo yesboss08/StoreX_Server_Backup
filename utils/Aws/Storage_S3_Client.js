@@ -1,5 +1,6 @@
 import {
   DeleteObjectCommand,
+  DeleteObjectsCommand,
   GetObjectCommand,
   PutObjectCommand,
   S3Client,
@@ -26,9 +27,10 @@ export const CreatePutSignedUrl = async ({
       fileInfo: hasedData,
     },
   });
+  console.log(fileSize)
   const url = await getSignedUrl(client, command, {
     signableHeaders: new Set(["content-type"]),
-    expiresIn: 300,
+    expiresIn: 500,
   });
   return url;
 };
@@ -56,6 +58,23 @@ export const DeleteS3Object = async ({Key }) => {
     const command = new DeleteObjectCommand({
       Bucket: Config.AWS_S3_STORAGE_BUCKET_NAME,
       Key,
+    });
+    const res = await client.send(command);
+    if(res.$metadata?.httpStatusCode==204){
+   const {val}=   await UpdateCloudFrontInvalidation({items:[`/${Key}`]})
+    if(val)  return { err: false };
+    }
+      return { err: true };
+  } catch (error) {
+    console.log("error while delete the s3 object", error);
+    return { err: true };
+  }
+};
+export const DeleteMutipleS3Object = async ({keys }) => {
+  try {
+    const command = new DeleteObjectsCommand({
+      Bucket: Config.AWS_S3_STORAGE_BUCKET_NAME,
+      Delete:{Objects: keys, Quiet:true}
     });
     const res = await client.send(command);
     if(res.$metadata?.httpStatusCode==204){

@@ -38,6 +38,7 @@ return res.status(201).json({message:"Directory created succesfully"})
 //serving dir data
 export const GetDirData = async (req,res,next)=>{
   const userData = req.userData
+  console.log("hello")
 const dirId = req.params.directoryId || userData.rootDirID
 const dirData = await directoryModel.findOne({_id:dirId , userId:userData.userId}).populate({path:'path', select:'name'}).lean()
 if(!dirData) return res.status(401).json({msg:"no drirectory exist"})
@@ -87,9 +88,9 @@ export const DeleteDir =  async(req,res)=>{
      res.status(404).json({message:"Cannot delete the root directory!"});
     }
 try {
-  debugger
   const dirData = await DeleteDirectory(directoryId )
    updateFolderSize(dirData.parent, -dirData.size)
+   console.log("done")
    return res.status(200).json({message:"Deleted succesfully"});
 } catch (error) {
  res.status(404).json( {message:`error while delting ${directoryId}`})
@@ -107,11 +108,19 @@ if(childDir.length>0){
 }
 
 const files = await FileModel.find({parent:Id},"_id extension")
-const fileIds = files.map((item)=>item._id)
+const fileIds = []
+const fileKeys = []
+ files.forEach((item)=>{
+  fileIds(item._id)
+  fileKeys.push(`${item._id}${item?.extension}`)
+ })
+ console.log(fileIds, fileKeys)
 
 if(files.length){
   try {
-    await Promise.all(files.map((item)=>rm(`./storage/${String(item._id)}${item.extension}`)))
+ const deleteS3Res= await DeleteMutipleS3Object({keys:fileKeys})
+//TODO: handle the error in better way 
+    await DeleteMutipleS3Object()
     await FileModel.deleteMany({_id:{$in: fileIds}})
   } catch (error) {
     console.log("error while deleting the files from storage", error)
